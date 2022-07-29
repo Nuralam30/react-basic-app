@@ -32,10 +32,18 @@ function App() {
 }
 
 function Counter(){
-  const [count, setCount] = useState(10);
+  const [count, setCount] = useState(0);
+  const increaseCount = () => {
+    const newCount = count + 1;
+    setCount(newCount)
+
+  }
+
   return(
     <div>
       <h2>Count : {count}</h2>
+      <button onMouseEnter={ () => setCount(count -1)}>Increase</button>
+      <button onClick={increaseCount}>Increase</button>
     </div>
   )
 }
