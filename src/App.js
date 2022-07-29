@@ -1,4 +1,5 @@
 // import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
@@ -12,6 +13,8 @@ function App() {
   
   return (
     <div className="App">
+      <Counter></Counter>
+
       <Person nayok='Sakib Khan' naika ='Opu Biswas'></Person>
       <Person nayok='Manna' naika ='Purnima'></Person>
       <Person nayok='Elias Kanchon' naika ='Moushumi'></Person>
@@ -26,6 +29,15 @@ function App() {
       {products.map(pd => <Product product={pd}></Product>)}
     </div>
   );
+}
+
+function Counter(){
+  const [count, setCount] = useState(10);
+  return(
+    <div>
+      <h2>Count : {count}</h2>
+    </div>
+  )
 }
 
 function Product(props){
