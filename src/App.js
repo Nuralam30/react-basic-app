@@ -23,8 +23,7 @@ function App() {
         }
       </ul>
 
-      <Product product={products[0]}></Product>
-      <Product product={products[1]}></Product>
+      {products.map(pd => <Product product={pd}></Product>)}
     </div>
   );
 }
