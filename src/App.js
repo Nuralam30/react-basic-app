@@ -14,8 +14,15 @@ function App() {
     <div className="App">
       <Person nayok='Sakib Khan' naika ='Opu Biswas'></Person>
       <Person nayok='Manna' naika ='Purnima'></Person>
-      {/* <Person nayok='Elias Kanchon' naika ='Moushumi'></Person>
-      <Person nayok='Dipjol' naika ='Bobita'></Person> */}
+      <Person nayok='Elias Kanchon' naika ='Moushumi'></Person>
+      <Person nayok='Dipjol' naika ='Bobita'></Person>
+
+      <ul>
+        {
+          products.map(product => <li>{product.name}</li>)
+        }
+      </ul>
+
       <Product product={products[0]}></Product>
       <Product product={products[1]}></Product>
     </div>
@@ -38,6 +45,7 @@ function Product(props){
     <div style={productStyle}>
       <h4>{name}</h4>
       <h5>{price}</h5>
+      <button>Buy Now</button>
     </div>
   )
 }
