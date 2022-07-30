@@ -44,32 +44,40 @@ function Counter(){
   return(
     <div>
       <h2>Count : {count}</h2>
-      <button onMouseEnter={ () => setCount(count -1)}>Increase</button>
+      <button onMouseEnter={ () => setCount(count -1)}>Decrease</button>
       <button onClick={increaseCount}>Increase</button>
     </div>
   )
 }
 
 function RandomUser(){
-
-  const [todos, setTodos] = useState([]);
-
-  useEffect( ()=>{
-    fetch('https://jsonplaceholder.typicode.com/todos')
-      .then(res => res.json())
-      .then(data => {
-        setTodos(data)
-        // console.log(users)
-      },[])
-  })
+  const nayoks = [
+    {name: 'Manna', age: 52},
+    {name: 'Riyaz', age: 54},
+    {name: 'Sakib Khan', age: 42},
+    {name: 'Shuvo', age: 38}
+  ]
   return(
-    <div>
-      <ul>
-          {
-            todos.map( todo => <li>{todo.title}</li>)
-          }
-      </ul>
+    <div style={{padding:'10px',border:'2px solid #3e4d5c',margin:'10px'}}>
+      {
+      nayoks.map( nk => <Nayoks name={nk.name} age={nk.age}></Nayoks>)
+      }
     </div>
+  )
+}
+
+function Nayoks(props){
+  var personStyle = {
+    border : '2px solid #b23bc5',
+    margin : '10px',
+    padding : '10px'
+  }
+  
+  return(
+    <div style={personStyle}>
+      <h2> {props.name}</h2>
+      <h3><span style={{fontSize : '20px', opacity : 0.6}}> Acting for</span> {props.age} years..</h3>
+  </div>
   )
 }
 
