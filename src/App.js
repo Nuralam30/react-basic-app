@@ -14,6 +14,7 @@ function App() {
   return (
     <div className="App">
       <Counter></Counter>
+      <RandomUser></RandomUser>
       <Users></Users>
 
       <Person nayok='Sakib Khan' naika ='Opu Biswas'></Person>
@@ -45,6 +46,29 @@ function Counter(){
       <h2>Count : {count}</h2>
       <button onMouseEnter={ () => setCount(count -1)}>Increase</button>
       <button onClick={increaseCount}>Increase</button>
+    </div>
+  )
+}
+
+function RandomUser(){
+
+  const [todos, setTodos] = useState([]);
+
+  useEffect( ()=>{
+    fetch('https://jsonplaceholder.typicode.com/todos')
+      .then(res => res.json())
+      .then(data => {
+        setTodos(data)
+        // console.log(users)
+      },[])
+  })
+  return(
+    <div>
+      <ul>
+          {
+            todos.map( todo => <li>{todo.title}</li>)
+          }
+      </ul>
     </div>
   )
 }
