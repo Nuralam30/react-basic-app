@@ -14,7 +14,8 @@ function App() {
   return (
     <div className="App">
       <Counter></Counter>
-      <RandomUser></RandomUser>
+      <RandomUsers></RandomUsers>  
+      <Heros></Heros>
       <Users></Users>
 
       <Person nayok='Sakib Khan' naika ='Opu Biswas'></Person>
@@ -29,6 +30,7 @@ function App() {
       </ul>
 
       {products.map(pd => <Product product={pd}></Product>)}
+    
     </div>
   );
 }
@@ -50,7 +52,27 @@ function Counter(){
   )
 }
 
-function RandomUser(){
+function RandomUsers(){
+  const [users, setUsers] = useState([])
+  useEffect( ()=>{
+    fetch('https://randomuser.me/api/?results=2')
+      .then(res => res.json())
+      .then(data => setUsers(data.results))})
+  return(
+    <div style={{padding:'10px',border:'2px solid #3e4d5c',margin:'10px',width:'600px'}}>
+        <ul>
+          {
+            users.map( user => <li>
+              <img src={user.picture.medium} alt="user profile pic" srcset="" width='100px' />
+              <h3>Name : {user.name.title +' ' + user.name.first +' ' + user.name.last}</h3>
+            </li> )
+          }
+        </ul>
+    </div>
+  )
+}
+
+function Heros(){
   const nayoks = [
     {name: 'Manna', age: 52},
     {name: 'Riyaz', age: 54},
