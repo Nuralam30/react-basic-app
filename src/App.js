@@ -46,7 +46,7 @@ function Counter(){
   return(
     <div>
       <h2>Count : {count}</h2>
-      <button onMouseEnter={ () => setCount(count -1)}>Decrease</button>
+      <button onClick={ () => setCount(count -1)}>Decrease</button>
       <button onClick={increaseCount}>Increase</button>
     </div>
   )
